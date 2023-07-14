@@ -1,0 +1,9 @@
+ nav {
+    position: fixed;
+    height: 30px;
+    width: 100vw;
+    background-color: #4056a1;
+    color: #ffffff;
+    padding: 1.5em;
+    font-family: 'Bungee', 'Source Sans 3', sans-serif;
+  }

@@ -2,7 +2,7 @@
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
- */
+ 
 html {
   box-sizing: border-box;
 }
@@ -14,12 +14,21 @@ html {
  * Global layout stuff
  */
 
-body {
+ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: 'Bungee', 'Source Sans 3', sans-serif;
 }
+
+main {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #f4f1ec;
+}
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ 
