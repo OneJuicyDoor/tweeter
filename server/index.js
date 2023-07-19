@@ -35,8 +35,26 @@ app.use("/tweets", tweetsRoutes);
 app.post('/tweets', (req, res) => {
   const { text } = req.body;
 
-  // Send a response with status 201 - Created
-  res.status(201).send('Tweet created successfully');
+  const newTweet = {
+    user: {
+      name: "Your Name",
+      avatars: "https://i.imgur.com/73hZDYK.png",
+      handle: "@YourHandle"
+    },
+    content: {
+      text: text
+    },
+    created_at: Date.now()
+  };
+
+  // Save the new tweet to the database
+  DataHelpers.saveTweet(newTweet, (err, savedTweet) => {
+    if (err) {
+      res.status(500).send('Error saving tweet');
+    } else {
+      res.status(201).json(savedTweet);
+    }
+  });
 });
 
 app.listen(PORT, () => {

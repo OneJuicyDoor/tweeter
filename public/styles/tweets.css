@@ -57,4 +57,26 @@
   .retweets i {
     margin-right: 5px;
   }
+  .error-message {
+    color: red;
+    border: 1px solid red;
+    padding: 5px;
+    display: none;
+  }
+
   
+  @media only screen and (min-width: 1024px) {
+    .handle {
+      margin-left: 60%;
+    }
+    .tweet {
+      padding: 1.5em;
+    width: 60%;
+      flex: 0 0 calc(33.333% - 20px);
+      float: right;
+    }
+  
+    .tweets-container {
+      justify-content: flex-end;
+    }
+  }
