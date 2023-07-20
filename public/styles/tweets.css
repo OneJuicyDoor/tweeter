@@ -48,17 +48,24 @@
 .tweet footer {
   padding: 10px;
   display: flex;
-  align-items: center;
   font-size: 14px;
   color: #898989;
+  justify-content: space-between;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
 }
 
 .likes,
 .retweets {
-  display: flex;
-  align-items: right;
-  margin-right: 10px;
+  justify-content: right;
 }
+
+.report:hover {
+  color: #ffe54f;
+} 
 
 .likes:hover {
   color: #ffe54f;
@@ -68,9 +75,12 @@
   color: #ffe54f;
 }
 
+.fa-solid fa-flag
+.rep
 .likes i,
 .retweets i {
   margin-right: 5px;
+  justify-content: space-between;
 }
 
 .error-message {

@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   // Function to display error messages
   function showError(errorMessage) {
@@ -5,6 +6,12 @@ $(document).ready(function() {
     $errorElement.text(errorMessage);
     $errorElement.slideDown(); // Show the error message with slideDown animation
   }
+  //escaoe function
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
 
   // Function to hide error messages
   function hideError() {
@@ -19,6 +26,7 @@ $(document).ready(function() {
       method: 'GET',
       dataType: 'json',
       success: function(response) {
+        console.log("responce log", response)
         renderTweets(response);
       },
       error: function(error) {
@@ -26,6 +34,7 @@ $(document).ready(function() {
       }
     });
   }
+
 
   // Load tweets when the page is ready
   loadTweets();
@@ -35,7 +44,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     const formData = $(this).serialize();
-    const tweetContent = $('#tweet-text').val().trim(); // Use trim() to remove whitespace
+    const tweetContent = $('#tweet-text').val().trim(); // Use trim to remove whitespace and text to make users unable to submit code
 
     if (tweetContent === '') {
       const errorMessage = 'Tweet content cannot be empty.';
@@ -45,7 +54,7 @@ $(document).ready(function() {
       showError(errorMessage);
     } else {
       // Post the new tweet to the server
-      $.post('/tweets', $(this).serialize())
+      $.post('/tweets', formData)
         .done(function(response) {
           console.log('Tweet posted successfully:', response);
           $('#tweet-text').val(''); // Clear the tweet text area
@@ -63,28 +72,29 @@ $(document).ready(function() {
     const { name, handle, avatars } = tweet.user;
     const { text } = tweet.content;
     const created_at = tweet.created_at;
-  
-    const $tweet = $(
-      `<article class="tweet">
-         <div class="tweet-header">
+    const $tweet = $(`
+      <article class="tweet">
+        <div class="tweet-header">
           <img class="profile-picture" src="${avatars}" alt="${name}">
           <span class="username">${name}</span>
           <span class="handle">${handle}</span>
-         </div>
-         <div class="tweet-text">${text}</div>
-         <footer>
-          <div class="likes"><i class="fas fa-heart"></i> <span>0</span></div>
-          <div class="retweets"><i class="fas fa-retweet"></i> <span>0</span></div>
-          <div class="timeago" datetime="${created_at}">${timeago.format(created_at)}</div>
-         </footer>
-      </article>`
-    );
-  
+        </div>
+        <div class="tweet-text">${escape(text)}</div>
+        <footer>
+        <div class="timeago" datetime="${created_at}">${timeago.format(
+          created_at
+        )}</div>
+          <div class="icons"><div class="report"><i class="fa-solid fa-flag"></div></i><div class="likes"><i class="fas fa-heart"></i> <span>0</span></div>
+          <div class="retweets"><i class="fas fa-retweet"></i> <span>0</span></div></div>
+        </footer>
+      </article>
+    `);
+
     return $tweet;
   }
-
   // Function to render tweets on the page
   function renderTweets(tweets) {
+    $(".counter").text("140")
     for (const tweet of tweets) {
       const $tweetElement = createTweetElement(tweet);
       $('#tweets-container').prepend($tweetElement);
@@ -98,6 +108,4 @@ $(document).ready(function() {
   // Render tweets on the page
   renderTweets([tweetData]);
 
-  // Initialize timeago plugin to show relative timestamps
-  $('.timeago').timeago();
 });

@@ -6,12 +6,12 @@
   background-color: #4056a1;
   color: #ffffff;
   padding: 1.5em;
-  font-family: 'Bungee', 'Source Sans 3', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   }
   .logo {
+    font-family: 'Bungee', 'Source Sans 3', sans-serif;
     font-size: 1.5rem;
   }
   
