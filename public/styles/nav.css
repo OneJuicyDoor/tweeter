@@ -1,6 +1,7 @@
  nav {
+    z-index: 99;
     position: fixed;
-    height: 30px;
+    height: 100px;
     width: 100vw;
     background-color: #4056a1;
     color: #ffffff;

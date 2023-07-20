@@ -70,26 +70,25 @@ const tweetData = {
     }
   });
 
-  function createTweetElement(tweet) {
-    const $tweet = $('<article>').addClass('tweet');
-    const $username = $('<div>').addClass('username').text(tweet.user.name);
-    const $handle = $('<div>').addClass('handle').text(tweet.user.handle);
-    const $content = $('<div>').text(tweet.content.text);
-    const $footer = $('<footer>');
-    const $likes = $('<div>').addClass('likes');
-    const $likesIcon = $('<i>').addClass('fas fa-heart');
-    const $likesCount = $('<span>').text('0');
-    const $retweets = $('<div>').addClass('retweets');
-    const $retweetsIcon = $('<i>').addClass('fas fa-retweet');
-    const $retweetsCount = $('<span>').text('0');
-    const $timeago = $('<div>').addClass('timeago').attr('datetime', tweet.created_at).text(timeago.format(tweet.created_at));
-    $likes.append($likesIcon, $likesCount);
-    $retweets.append($retweetsIcon, $retweetsCount);
-    $footer.append($likes, $retweets, $timeago);
-    $tweet.append($username, $handle, $content, $footer);
-    
-    return $tweet;
-  }
+function createTweetElement(tweet) {
+  const { name, handle } = tweet.user;
+  const { text, created_at } = tweet.content;
+  const $tweet = $(
+    `<article class="tweet">
+       <div class="tweet-header">
+        <span class="username">${name}</span>
+        <span class="handle">${handle} </span>
+       </div>
+    <div class="tweet-text">${text}</div>
+     <footer>
+      <div class="likes"><i class="fas fa-heart"></i> <span>0</span></div>
+       <div class="retweets"><i class="fas fa-retweet"></i> <span>0</span></div>
+      <div class="timeago" datetime="${created_at}">${timeago.format(created_at)}</div>
+     </footer>
+  <article/>`)
+  
+   return $tweet;
+}
 
   function renderTweets(tweets) {
     for (const tweet of tweets) {
