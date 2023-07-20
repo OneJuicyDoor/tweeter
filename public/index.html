@@ -19,16 +19,19 @@
 <body>
   <!-- Top nav bar (fixed) -->
   <nav>
-    <span>tweeter</span>
+    <span class="logo">tweeter</span>
+    <span class="write-tweet">Write a new tweet</span>
     <i class="fa-solid fa-angles-down"></i>
   </nav>
   
   <!-- Header section -->
   <header class="header">
+    <!-- Profile image -->
     <div>
       <img src="/images/profile-hex.png" alt="Profile Image">
     </div>
     <br>
+    <!-- User's name -->
     <div>
       <h2>Your Name</h2>
     </div>
@@ -36,23 +39,29 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
+    <!-- Compose Tweet section -->
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
+      <!-- Error message container -->
       <div id="error-message" class="error-message"></div>
+      <!-- Tweet form -->
       <form id="tweet-form">
         <label for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="tweet-text"></textarea>
         <div>
           <button type="submit">Tweet</button>
+          <!-- Character counter -->
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
     </section>
+    <!-- Container for dynamically rendered tweets -->
     <section id="tweets-container">
       <!-- Tweets will be dynamically rendered here -->
     </section>
   </main>
 
+  <!-- JavaScript libraries and scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="/scripts/client.js"></script>
   <script src="/scripts/composer-char-counter.js"></script>

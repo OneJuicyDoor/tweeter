@@ -1,10 +1,26 @@
  nav {
-    z-index: 99;
-    position: fixed;
-    height: 100px;
-    width: 100vw;
-    background-color: #4056a1;
-    color: #ffffff;
-    padding: 1.5em;
-    font-family: 'Bungee', 'Source Sans 3', sans-serif;
+  z-index: 99;
+  position: fixed;
+  height: 100px;
+  width: 100vw;
+  background-color: #4056a1;
+  color: #ffffff;
+  padding: 1.5em;
+  font-family: 'Bungee', 'Source Sans 3', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .write-tweet {
+    display: inline;
+    font-size: 0.9rem;
+    margin-left: auto;
+  }
+  
+  .fa-angles-down {
+    margin-left: 1rem;
   }
