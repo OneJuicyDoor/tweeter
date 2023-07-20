@@ -35,7 +35,7 @@ app.use("/tweets", tweetsRoutes);
 app.post('/tweets', (req, res) => {
   const { text } = req.body;
 
-  const newTweet = {
+  const weet = {
     user: {
       name: "Your Name",
       avatars: "https://i.imgur.com/73hZDYK.png",

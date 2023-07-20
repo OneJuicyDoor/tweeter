@@ -1,91 +1,95 @@
 #tweets-container {
-    flex-direction: column;
-    display: flex;
-    align-items: center ;
-    margin-top: 20px;
-    width: 100%;
-  }
-  
-  .tweet {
-    width: 100%;
-    background-color: #fffdda;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-  .tweet:hover {
-    box-shadow: 6px 6px #9cd0e0;
-  }
-  
- .tweet-text {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+}
+
+.tweet {
+  width: 100%;
+  background-color: #fffdda;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet:hover {
+  box-shadow: 6px 6px #9cd0e0;
+}
+
+.tweet-text {
   padding-left: 10px;
   padding-right: 10px;
- }
+  /* Add the following properties to make the box get taller */
+  word-wrap: break-word;
+  flex-grow: 1;
+}
 
-  .tweet-header {
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 5px;
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .username {
+.tweet-header {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  width: 100%;
+  justify-content: space-between;
+}
 
-    font-weight: bold;
-  }
-  
+.username {
+  font-weight: bold;
+}
+
+.handle {
+  color: #b6c7d6;
+  font: 100;
+}
+
+.tweet footer {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #898989;
+}
+
+.likes,
+.retweets {
+  display: flex;
+  align-items: right;
+  margin-right: 10px;
+}
+
+.likes:hover {
+  color: #ffe54f;
+}
+
+.retweets:hover {
+  color: #ffe54f;
+}
+
+.likes i,
+.retweets i {
+  margin-right: 5px;
+}
+
+.error-message {
+  color: red;
+  border: 1px solid red;
+  padding: 5px;
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
   .handle {
-    color: #b6c7d6;
-    font: 100;
+    margin-left: 60%;
   }
-  
-  .tweet footer {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    color: #898989
-  }
-  
-  .likes,
-  .retweets {
-    display: flex;
-    align-items: right;
-    margin-right: 10px;
-  }
-  .likes:hover {
-    color: #ffe54f;
-  }
-  .retweets:hover {
-    color: #ffe54f;
-  }
-  .likes i,
-  .retweets i {
-    margin-right: 5px;
-  }
-  .error-message {
-    color: red;
-    border: 1px solid red;
-    padding: 5px;
-    display: none;
+  .tweet {
+    padding: 1.5em;
   }
 
-  
-  @media only screen and (min-width: 1024px) {
-    .handle {
-      margin-left: 60%;
-    }
-    .tweet {
-      padding: 1.5em;
-    width: 60%;
-      /*flex: 0 0 calc(33.333% - 20px);
-      float: right; */
-    }
-  
-    .tweets-container {
-      justify-content: flex-end;
-    }
+  .tweets-container {
+    width: 100%;
+    justify-content: flex-end;
   }
+}

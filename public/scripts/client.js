@@ -1,22 +1,5 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-/*
 
-const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-    "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-    "created_at": 1461116232227
- }
- */$(document).ready(function() {
+$(document).ready(function() {
   function showError(errorMessage) {
     const $errorElement = $('#error-message');
     $errorElement.text(errorMessage);
@@ -48,7 +31,7 @@ const tweetData = {
     event.preventDefault();
 
     const formData = $(this).serialize();
-    const tweetContent = $('#tweet-text').val();
+    const tweetContent = $('#tweet-text').val().trim(); // Use trim() to remove whitespace
 
     if (tweetContent === '') {
       const errorMessage = 'Tweet content cannot be empty.';
@@ -72,7 +55,9 @@ const tweetData = {
 
 function createTweetElement(tweet) {
   const { name, handle } = tweet.user;
-  const { text, created_at } = tweet.content;
+  const { text } = tweet.content;
+  const created_at = tweet.created_at
+
   const $tweet = $(
     `<article class="tweet">
        <div class="tweet-header">
@@ -97,17 +82,7 @@ function createTweetElement(tweet) {
     }
   }
 
-  // Initial render of tweets
   const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
   };
   
   renderTweets([tweetData]);
