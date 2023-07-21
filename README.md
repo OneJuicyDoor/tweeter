@@ -9,7 +9,7 @@ This repository is the starter code for the project: Students will fork and clon
 Here are some screenshots of the Tweeter project:
 
 ![Homepage]()
-![homepage in widescreen]()
+![homepage in widescreen](https://github.com/OneJuicyDoor/tweeter/blob/master/public/images/Screenshot%202023-07-20%20223613.png)
 
 
 ## Getting Started
